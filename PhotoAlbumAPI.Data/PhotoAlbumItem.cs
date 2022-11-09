@@ -4,7 +4,7 @@ namespace PhotoAlbumAPI.Data
 {
     public class PhotoAlbumItem
     {
-        AlbumItem AlbumItem { get; set; }
-        List<PhotoItem> PhotoItems { get; set; }
+        public AlbumItem AlbumItem { get; set; }
+        public List<PhotoItem> PhotoItems { get; set; }
     }
 }

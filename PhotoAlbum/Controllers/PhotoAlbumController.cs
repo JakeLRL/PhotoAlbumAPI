@@ -1,10 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using PhotoAlbumAPI.Abstractions.Services;
 using PhotoAlbumAPI.Data;
-using PhotoAlbumAPI.Services;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace PhotoAlbumAPI.Controllers
@@ -15,24 +13,24 @@ namespace PhotoAlbumAPI.Controllers
     {
 
         private readonly ILogger<PhotoAlbumController> _logger;
-        private readonly PhotoAlbumAPIService _photoAlbumApiService;
+        private readonly ICombiningService _combiningService;
 
-        public PhotoAlbumController(PhotoAlbumAPIService photoAlbumApiService, ILogger<PhotoAlbumController> logger)
+        public PhotoAlbumController(ICombiningService combiningService, ILogger<PhotoAlbumController> logger)
         {
-            _photoAlbumApiService = photoAlbumApiService;
+            _combiningService = combiningService;
             _logger = logger;
         }
 
         [HttpGet]
-        public IEnumerable<PhotoAlbumItem> Get()
+        public async Task<IEnumerable<PhotoAlbumItem>> Get()
         {
-            return new List<PhotoAlbumItem>();
+            return await _combiningService.GetAllPhotoAlbums();
         }
 
         [HttpGet("{id}")]
-        public PhotoAlbumItem Get(int id)
+        public async Task<PhotoAlbumItem> Get(int id)
         {
-            return new PhotoAlbumItem();
+            return await _combiningService.GetPhotoAlbumFromId(id);
         }
     }
 }

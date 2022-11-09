@@ -1,15 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using PhotoAlbumAPI.Abstractions.Clients;
+using PhotoAlbumAPI.Abstractions.Services;
+using PhotoAlbumAPI.Services;
+using PhotoAlbumAPI.Services.Clients;
 
 namespace PhotoAlbumAPI
 {
@@ -25,6 +22,9 @@ namespace PhotoAlbumAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpClient<IPhotoAlbumAPIClient, PhotoAlbumAPIClient>();
+            services.AddSingleton<IPhotoAlbumAPIService, PhotoAlbumAPIService>();
+            services.AddSingleton<ICombiningService, CombiningService>();
             services.AddControllers();
         }
 

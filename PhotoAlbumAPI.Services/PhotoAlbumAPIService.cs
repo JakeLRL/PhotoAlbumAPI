@@ -4,7 +4,6 @@ using PhotoAlbumAPI.Abstractions.Services;
 using PhotoAlbumAPI.Data;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PhotoAlbumAPI.Services
