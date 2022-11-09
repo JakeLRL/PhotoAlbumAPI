@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PhotoAlbum
+namespace PhotoAlbumAPI
 {
     public class Program
     {
