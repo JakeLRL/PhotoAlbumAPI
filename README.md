@@ -29,3 +29,9 @@ To get a single PhotoAlbum item by an albumId {id}, call the endpoint:
 https://localhost:44314/api/photoalbum/albumId/{id}
 ``
 
+## TODO: 
+
+- Would ideally have some logging added to the solution, but skipped due to time constraints
+- Current testing only covers happy paths
+- Would add some acceptance tests for deploying the solution, but as it is a hassle to run locally they are skipped
+
