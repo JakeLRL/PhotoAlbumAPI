@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PhotoAlbumAPI.Data\PhotoAlbumAPI.Data.csproj" />
+    <ProjectReference Include="..\PhotoAlbumAPI.Services\PhotoAlbumAPI.Services.csproj" />
+  </ItemGroup>
+
+
+</Project>

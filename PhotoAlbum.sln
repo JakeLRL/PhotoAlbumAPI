@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33027.164
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoAlbumAPI", "PhotoAlbum\PhotoAlbumAPI.csproj", "{29DA59A1-0B83-447F-9C5E-36A34F4D0408}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoAlbumAPI.Data", "PhotoAlbumAPI.Data\PhotoAlbumAPI.Data.csproj", "{AB666690-B5AA-4968-9F97-E67B155F128F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoAlbumAPI.Services", "PhotoAlbumAPI.Services\PhotoAlbumAPI.Services.csproj", "{94C2458C-360F-4EAB-B970-24F2CAAAC357}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoAlbumAPI.Abstractions", "PhotoAlbumAPI.Abstractions\PhotoAlbumAPI.Abstractions.csproj", "{E608E29E-0FAC-4133-B3AC-1FAB5460FF84}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{66C7820D-FB95-4988-97C4-4D4E5DBB662B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoAlbumAPI.UnitTests", "PhotoAlbumAPI.UnitTests\PhotoAlbumAPI.UnitTests.csproj", "{6EBC5A74-BB5D-47C4-9E8E-6C57F1C440EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoAlbumAPI.IntegrationTests", "PhotoAlbumAPI.IntegrationTests\PhotoAlbumAPI.IntegrationTests.csproj", "{E1A5BDE6-D8F1-45DF-8B3D-2DE56EEE1494}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29DA59A1-0B83-447F-9C5E-36A34F4D0408}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29DA59A1-0B83-447F-9C5E-36A34F4D0408}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29DA59A1-0B83-447F-9C5E-36A34F4D0408}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29DA59A1-0B83-447F-9C5E-36A34F4D0408}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB666690-B5AA-4968-9F97-E67B155F128F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB666690-B5AA-4968-9F97-E67B155F128F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB666690-B5AA-4968-9F97-E67B155F128F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB666690-B5AA-4968-9F97-E67B155F128F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94C2458C-360F-4EAB-B970-24F2CAAAC357}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94C2458C-360F-4EAB-B970-24F2CAAAC357}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94C2458C-360F-4EAB-B970-24F2CAAAC357}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94C2458C-360F-4EAB-B970-24F2CAAAC357}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E608E29E-0FAC-4133-B3AC-1FAB5460FF84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E608E29E-0FAC-4133-B3AC-1FAB5460FF84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E608E29E-0FAC-4133-B3AC-1FAB5460FF84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E608E29E-0FAC-4133-B3AC-1FAB5460FF84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EBC5A74-BB5D-47C4-9E8E-6C57F1C440EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EBC5A74-BB5D-47C4-9E8E-6C57F1C440EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EBC5A74-BB5D-47C4-9E8E-6C57F1C440EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EBC5A74-BB5D-47C4-9E8E-6C57F1C440EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1A5BDE6-D8F1-45DF-8B3D-2DE56EEE1494}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1A5BDE6-D8F1-45DF-8B3D-2DE56EEE1494}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1A5BDE6-D8F1-45DF-8B3D-2DE56EEE1494}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1A5BDE6-D8F1-45DF-8B3D-2DE56EEE1494}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6EBC5A74-BB5D-47C4-9E8E-6C57F1C440EA} = {66C7820D-FB95-4988-97C4-4D4E5DBB662B}
+		{E1A5BDE6-D8F1-45DF-8B3D-2DE56EEE1494} = {66C7820D-FB95-4988-97C4-4D4E5DBB662B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {76F97638-C736-48EF-B57F-31B06E805FD3}
+	EndGlobalSection
+EndGlobal
