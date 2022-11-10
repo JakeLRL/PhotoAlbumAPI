@@ -14,22 +14,41 @@ namespace PhotoAlbumAPI.UnitTests.Services
         [SetUp]
         public void Setup()
         {
-
+            // would set up a mock telemetry here, but not implemented
         }
 
         [Test]
         public async Task GetAlbumItemsAsync_GivenValidRequest_ShouldReturnListOfAlbumItemsAsync()
         {
             var query = "albums";
-            var response = "[{\"userId\": 1,\"id\": 1,\"title\": \"quidem molestiae enim\"}]";
+            var albumId = 1;
+            var response = $"[{{\"userId\": 1,\"id\": {albumId},\"title\": \"quidem molestiae enim\"}}]";
             var client = new Mock<IPhotoAlbumAPIClient>();
             client.Setup(x => x.GetResponseFromApiAsync(query)).ReturnsAsync(response);
 
             var sut = new PhotoAlbumAPIService(client.Object);
-            var albumItem = await sut.GetAlbumItemsAsync();
+            var albumItems = await sut.GetAlbumItemsAsync();
 
-            albumItem.Should().NotBeNullOrEmpty();
-            albumItem.ToList().Count.Should().Be(1);
+            albumItems.Should().NotBeNullOrEmpty();
+            albumItems.ToList().Count.Should().Be(1);
+            albumItems.First().id.Should().Be(albumId);
+        }
+
+        [Test]
+        public async Task GetPhotoItemsAsync_GivenValidRequest_ShouldReturnListOfPhotoItemsAsync()
+        {
+            var query = "photos";
+            var photoId = 1;
+            var response = $"[{{\"albumId\": 1,\"id\": {photoId},\"title\": \"a title\",\"url\": \"https://via.placeholder.com/600/92c952\",\"thumbnailUrl\": \"https://via.placeholder.com/150/92c952\"}}]";
+            var client = new Mock<IPhotoAlbumAPIClient>();
+            client.Setup(x => x.GetResponseFromApiAsync(query)).ReturnsAsync(response);
+
+            var sut = new PhotoAlbumAPIService(client.Object);
+            var photoItems = await sut.GetPhotoItemsAsync();
+
+            photoItems.Should().NotBeNullOrEmpty();
+            photoItems.ToList().Count.Should().Be(1);
+            photoItems.First().id.Should().Be(photoId);
         }
     }
 }
