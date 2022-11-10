@@ -7,9 +7,11 @@ namespace PhotoAlbumAPI.Abstractions.Services
     public interface ICombiningService
     {
         Task<IEnumerable<PhotoAlbumItem>> GetAllPhotoAlbums();
-        Task<PhotoAlbumItem> GetPhotoAlbumFromId(int id);
+        Task<IEnumerable<PhotoAlbumItem>> GetPhotoAlbumsFromUserId(int id);
+        Task<PhotoAlbumItem> GetPhotoAlbumFromAlbumId(int id);
         IEnumerable<PhotoAlbumItem> CombinePhotoAlbums(IEnumerable<AlbumItem> albumItems, IEnumerable<PhotoItem> photoItems);
-        PhotoAlbumItem CombinePhotoAlbumFromId(IEnumerable<AlbumItem> albumItems, IEnumerable<PhotoItem> photoItems, int id);
+        IEnumerable<PhotoAlbumItem> CombinePhotoAlbumFromUserId(IEnumerable<AlbumItem> albumItems, IEnumerable<PhotoItem> photoItems, int id);
+        PhotoAlbumItem CombinePhotoAlbumFromAlbumId(IEnumerable<AlbumItem> albumItems, IEnumerable<PhotoItem> photoItems, int id);
 
     }
 }

@@ -2,10 +2,7 @@
 using NUnit.Framework;
 using PhotoAlbumAPI.Services;
 using PhotoAlbumAPI.Services.Clients;
-using System;
-using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PhotoAlbumAPI.IntegrationTests.Services
@@ -38,9 +35,23 @@ namespace PhotoAlbumAPI.IntegrationTests.Services
         [TestCase(2)]
         [TestCase(3)]
         [TestCase(4)]
-        public async Task GivenGetPhotoAlbumFromId_ShouldReturnPhotoAlbumItemWithAlbumId(int id)
+        public async Task GivenGetPhotoAlbumsFromUserId_WhenValidUserId_ShouldReturnPhotoAlbumItemsWithUserId(int id)
         {
-            var photoAlbumItem = await _sut.GetPhotoAlbumFromId(id);
+            var photoAlbumItems = await _sut.GetPhotoAlbumsFromUserId(id);
+
+            foreach(var photoAlbumItem in photoAlbumItems)
+            {
+                photoAlbumItem.AlbumItem.userId.Should().Be(id);
+            }
+        }
+
+        [TestCase(1)]
+        [TestCase(2)]
+        [TestCase(3)]
+        [TestCase(4)]
+        public async Task GivenGetPhotoAlbumFromAlbumId_WhenValidUserId_ShouldReturnPhotoAlbumItemWithAlbumId(int id)
+        {
+            var photoAlbumItem = await _sut.GetPhotoAlbumFromAlbumId(id);
 
             photoAlbumItem.AlbumItem.id.Should().Be(id);
             foreach(var photoItem in photoAlbumItem.PhotoItems)

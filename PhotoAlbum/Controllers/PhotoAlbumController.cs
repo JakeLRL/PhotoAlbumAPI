@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using PhotoAlbumAPI.Abstractions.Services;
 using PhotoAlbumAPI.Data;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace PhotoAlbumAPI.Controllers
@@ -22,15 +23,36 @@ namespace PhotoAlbumAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<PhotoAlbumItem>> Get()
+        public async Task<IActionResult> Get()
         {
-            return await _combiningService.GetAllPhotoAlbums();
+            var response = await _combiningService.GetAllPhotoAlbums();
+            if(response == null || !response.Any())
+            {
+                return NoContent();
+            }
+            return Ok(response);
         }
 
-        [HttpGet("{id}")]
-        public async Task<PhotoAlbumItem> Get(int id)
+        [HttpGet("albumId/{id}")]
+        public async Task<IActionResult> GetAlbumId(int id)
         {
-            return await _combiningService.GetPhotoAlbumFromId(id);
+            var response = await _combiningService.GetPhotoAlbumFromAlbumId(id);
+            if (response == null)
+            {
+                return NoContent();
+            }
+            return Ok(response);
+        }
+
+        [HttpGet("userId/{id}")]
+        public async Task<IActionResult> GetUserId(int id)
+        {
+            var response = await _combiningService.GetPhotoAlbumsFromUserId(id);
+            if (response == null || !response.Any())
+            {
+                return NoContent();
+            }
+            return Ok(response);
         }
     }
 }
